@@ -1,0 +1,9 @@
+pandas
+numpy
+ta
+plotly
+fastapi
+uvicorn
+sqlalchemy
+python-telegram-bot
+MetaTrader5
