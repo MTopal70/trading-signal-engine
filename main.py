@@ -15,4 +15,7 @@ if __name__ == "__main__":
     for s in signals[-10:]:  # letzte 10 Signale
         print(s)
 
+    print("Letzten 10 Kerzen:")
+    print(df.tail(10)) # letzte 10 Signale
+
 
