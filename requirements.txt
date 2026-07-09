@@ -7,3 +7,7 @@ uvicorn
 sqlalchemy
 python-telegram-bot
 MetaTrader5
+kaleido
+requests
+python-dotenv
+dotenv
