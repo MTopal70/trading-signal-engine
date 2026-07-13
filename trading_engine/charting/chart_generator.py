@@ -6,13 +6,16 @@ class ChartGenerator:
         pass
 
     def plot(self, df, signals=None, title="EURUSD M15 Chart"):
+        df = df.copy()
+        df["time"] = df["time"].dt.strftime("%Y-%m-%d %H:%M:%S")
+
         fig = make_subplots(
             rows=5, cols=1,
             shared_xaxes=True,
             vertical_spacing=0.02,
             row_heights=[0.45, 0.15, 0.15, 0.15, 0.10]
         )
-        fig.write_image(f"chart_{title}.png")
+        """fig.write_image(f"chart_{title}.png")"""
 
         # --- Candlestick Chart ---
         fig.add_trace(
@@ -55,6 +58,7 @@ class ChartGenerator:
         # --- Signal Markers ---
         if signals:
             for sig in signals:
+                sig["time"] = str(sig["time"])
                 if sig["direction"] == "long":
                     fig.add_annotation(
                         x=sig["time"],
@@ -79,4 +83,5 @@ class ChartGenerator:
             template="plotly_dark"
         )
 
-        fig.show()
+        fig.write_image(f"chart_{title}.png")
+        """fig.show()"""
